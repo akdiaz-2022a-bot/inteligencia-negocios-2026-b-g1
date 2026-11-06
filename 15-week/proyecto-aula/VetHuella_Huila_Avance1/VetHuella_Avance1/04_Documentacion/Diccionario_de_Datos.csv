@@ -1,0 +1,19 @@
+﻿Tabla,Campo,Tipo de dato,Descripción,Regla / Observación
+Fact_Citas,id_cita,Texto,Identificador único de la cita,"PK, una cita por fila"
+Fact_Citas,fecha_cita,Fecha,Fecha de cita programada,2025; origen con formatos mixtos
+Fact_Citas,hora_cita,Hora,Hora de cita programada,Hora local sin zona
+Fact_Citas,id_servicio,Texto,Clave de servicio,FK a Dim_Servicio
+Fact_Citas,id_paciente,Texto,Clave de paciente sintético,FK a Dim_Paciente
+Fact_Citas,id_canal,Texto,Clave del canal de agendamiento,FK a Dim_Canal
+Fact_Citas,estado_final,Texto,Resultado final de la cita,Atendida / No asistió / Cancelada con anticipación / Reprogramada
+Fact_Citas,duracion_programada_min,Entero,Minutos reservados,Minutos enteros
+Fact_Citas,id_cita_origen,Texto / nulo,"Cita anterior de origen, si aplica",Vacío en los 1500 registros del archivo de referencia
+Fact_Citas,franja_horaria,Texto,Segmentación de horario,Mañana (<12:00) o Tarde (>=12:00)
+Dim_Servicio,id_servicio,Texto,Clave del servicio,PK
+Dim_Servicio,servicio,Texto,Nombre del servicio,Cinco servicios
+Dim_Servicio,categoria,Texto,Categoría del servicio,Consulta/Preventivo/Control
+Dim_Servicio,duracion_estandar_min,Entero,Duración estándar en minutos,"20, 30 o 40 minutos"
+Dim_Paciente,id_paciente,Texto,Clave del paciente ficticio,PK
+Dim_Paciente,especie,Texto,Especie del animal,Perro o Gato
+Dim_Canal,id_canal,Texto,Clave del canal,PK
+Dim_Canal,canal,Texto,Canal de agendamiento,"WhatsApp, Teléfono, Recepción"
